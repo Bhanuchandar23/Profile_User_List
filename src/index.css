@@ -1,0 +1,72 @@
+.User_card_Container{
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    width:250px;
+    height: 100px;
+    background-color: #a3a2a2;
+    justify-content: center;
+
+}
+.avatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+}
+.User_info_Container{
+    margin-left: 20px;
+    
+}
+.User_Name{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family:'Times New Roman', Times, serif ;
+    color: #211e24;
+}
+.User_designation{
+    font-weight: 200;
+    font-family: "Roboto";
+    font-size: 14em;
+    color: #969696;
+    margin-top: 10px;
+}
+.list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(241, 237, 228);
+    
+    
+    padding: 25px;
+
+    
+    
+
+
+}
+.title{
+    font-size: 42px;
+    font-weight: bold;
+    color: #7c6a8e;
+    
+
+
+}
+.root{
+    background-color: #f5f5f5;
+    height: 50vh;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    min-width:400px;
+
+    
+
+
+;
+}
+
+
