@@ -1,6 +1,7 @@
 import UserProfile from './index.jsx'
+import {Component} from 'react'
 
-const userDetails  = [
+  const initialUserDetails  = [
   {
   u_id:1,
   ImageUrl:"https://images.unsplash.com/photo-1592009309602-1dde752490ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
@@ -42,24 +43,55 @@ const userDetails  = [
 
 },
 ];
+ class App extends Component {
+  state = {
+          searchInput:"" ,
+          userDetailList : initialUserDetails,
+
+   } 
+   onChangeSearchInput = (e) => {
+    this.setState({ searchInput: e.target.value });
+  }
+  deleteUser =(u_id) => {
+    const {userDetailList}= this.state;
+    const updatedList = userDetailList.filter((item) => item.u_id!== u_id);
+    this.setState({ userDetailList: updatedList });
+ 
+
+  }
+  
+
+  render() { 
+      const { searchInput, userDetailList } = this.state;
+       
+       const searchResults = this.state.userDetailList.filter((item) => item.name.includes(this.state.searchInput));
+    return (
+      <div className="list-container">
+         <h1 className='title'>UserList</h1>
+         <input  type="text" placeholder=' Search with Capital letter' value ={searchInput} onChange ={ this.onChangeSearchInput}  />
+         <ul >
+            {
+               searchResults.map((item)=>(
+                 <UserProfile key ={item.u_id} userDetails ={item} deleteUser={this.deleteUser} />
+               ))
+            }
+           
+ 
+         </ul>
+      
+      
+      </div>
+
+    );
+  }
+ }
+  
+ export default App;
+
+ 
 
   
 
-  
 
-const App  = () =>(
-  <div className="list-container">
-    <h1 className='title'>UserList</h1>
-  <ul>
-    {
-      userDetails.map((item)=>(
-        <UserProfile key ={item.u_id} userDetails ={item}/>
-      ))
-    }
-  </ul>
-  
-    
-  </div>
-) 
 
-export default App;
+
